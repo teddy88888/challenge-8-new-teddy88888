@@ -17,9 +17,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link
           to="/"
-          className="text-2xl font-black text-red-600 tracking-tighter"
+          className="text-5xl font-black text-red-600 tracking-tighter"
         >
-          MOVIEAPP
+          CMOVIE
         </Link>
 
         <form
@@ -31,11 +31,11 @@ const Navbar = () => {
             placeholder="Cari film favorit..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-white/10 border border-white/20 rounded-full py-2 px-5 text-sm text-red focus:outline-none focus:border-red-600 transition-all"
+            className="w-full bg-white/10 border border-white/20 rounded-full py-5 px-10 text-2xl text-red focus:outline-none focus:border-red-600 transition-all"
           />
           <button
             type="submit"
-            className="absolute right-4 top-0 text-black-200 h-full flex items-center justify-center"
+            className="absolute right-2 top-0 text-black-200 h-full rounded-b-md flex-5 justify-center"
           >
             🔍
           </button>

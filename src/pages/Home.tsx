@@ -1,13 +1,10 @@
 // src/pages/Home.tsx
-import { useTrendingMovies } from "../hooks/useMovies";
 import MovieCard from "../components/MovieCard";
 import type { Movie } from "../types";
 import { useEffect, useState } from "react";
 import api from "../utils/axios";
 
 const Home = () => {
-  const { data: trendingMovies, isLoading: isTrendingLoading } =
-    useTrendingMovies();
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -19,7 +16,9 @@ const Home = () => {
     try {
       const { data } = await api.get(`/movie/popular?page=${pageNum}`);
       // Menggabungkan film lama dengan film yang baru diambil
-      setMovies((prev) => [...prev, ...data.results]);
+      setMovies((prev) =>
+        pageNum === 1 ? data.results : [...prev, ...data.results]
+      );
     } catch (error) {
       console.error("Gagal mengambil data", error);
     } finally {
@@ -30,7 +29,7 @@ const Home = () => {
     fetchMovies(page);
   }, [page]);
 
-  if (isLoading)
+  if (loading)
     return (
       <div className="bg-black h-screen text-white flex items-center justify-center">
         Loading...
@@ -43,21 +42,22 @@ const Home = () => {
       {movies && movies.length > 0 && (
         <section className="relative h-[60vh] md:h-[80vh] w-full">
           <img
-            src={`${import.meta.env.VITE_TMDB_IMAGE_URL}${
-              movies[0].backdrop_path
-            }`}
-            className="w-full h-full object-cover brightness-50"
+            // src={`${import.meta.env.VITE_TMDB_IMAGE_URL}${
+            //   movies[0].backdrop_path
+            // }`}
+            src="../heroSection.png"
+            className="w-380 h-350 object-cover left-200 brightness-100"
           />
           <div className="absolute bottom-20 left-6 md:left-20 max-w-xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              {movies[0].title}
+              {/* {movies[0].title} */}
             </h1>
             <p className="text-gray-300 line-clamp-3 mb-6">
-              {movies[0].overview}
+              {/* {movies[0].overview} */}
             </p>
-            <button className="bg-red-600 px-8 py-3 rounded-full font-bold hover:bg-red-700 transition">
+            {/* <button className="!bg-neutral-800 hover:!bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3">
               Watch Now
-            </button>
+            </button> */}
           </div>
         </section>
       )}

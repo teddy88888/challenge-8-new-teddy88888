@@ -16,12 +16,11 @@ export const useTrendingMovies = () => {
 // src/hooks/useMovies.ts
 export const useMovieDetail = (id: string) => {
   return useQuery({
-    queryKey: ["movie", id],
+    queryKey: ['movie', id],
     queryFn: async () => {
-      // Tambahkan ?append_to_response=videos
-      const { data } = await api.get(`/movie/${id}?append_to_response=videos`);
+      // Tambahkan videos dan credits agar data lengkap dalam satu kali panggil
+      const { data } = await api.get(`/movie/${id}?append_to_response=videos,credits`);
       return data;
     },
-    enabled: !!id,
   });
 };
