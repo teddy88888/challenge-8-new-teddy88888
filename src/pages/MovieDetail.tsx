@@ -29,14 +29,13 @@ const MovieDetail = () => {
   return (
     <>
       <div className="min-h-screen bg-[#0f0f0f] text-white pt-24 pb-20">
-        
         <div className="container mx-auto px-6 md:px-20 mb-10">
           <button
             onClick={() => navigate("/")}
             className="!bg-neutral-800 hover:!bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
           >
             <span className="text-white !opacity-100">❮</span>
-            <span className="text-white !opacity-100 font-bold text-xs uppercase tracking-widest">
+            <span className="text-white !opacity-100 font-sans italic text-xs uppercase tracking-widest">
               Kembali ke Beranda
             </span>
           </button>
@@ -139,8 +138,18 @@ const MovieDetail = () => {
       {showModal && (
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4">
           <div className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
+            <div className="container left-0 top-0 mb-0 px-100 md:px-80">
+              <button
+                onClick={() => navigate("/")}
+                className="!bg-neutral-800 hover:!bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
+              >
+                <span className="text-white !opacity-100">❮</span>
+                <span className="text-white !opacity-100 font-sans italic text-xs uppercase tracking-widest">
+                  Kembali ke Beranda
+                </span>
+              </button>
+            </div>
             {/* Tombol Close */}
-
             <button
               onClick={() => setShowModal(false)}
               className="absolute -top-12 right-0 text-white text-xl font-bold hover:text-red-500"
