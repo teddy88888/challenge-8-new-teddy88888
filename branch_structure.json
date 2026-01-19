@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "fix-workspace-problems",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "fix-workspace-problems": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "fix-workspace-problems",
+    "origin"
+  ]
+}
