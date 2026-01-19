@@ -10,7 +10,7 @@ const MovieDetail = () => {
   const { data: movie, isLoading, isError } = useMovieDetail(id!);
   const [showModal, setShowModal] = useState(false);
   const trailerKey = movie?.videos?.results?.find(
-    (vid: Video) => vid.type === "Trailer" && vid.site === "YouTube"
+    (vid: Video) => vid.type === "Trailer" && vid.site === "YouTube",
   )?.key;
   // DEBUG: Hapus ini jika sudah berhasil muncul
   console.log("Cek Data API:", movie);
@@ -32,10 +32,10 @@ const MovieDetail = () => {
         <div className="container mx-auto px-6 md:px-20 mb-10">
           <button
             onClick={() => navigate("/")}
-            className="!bg-neutral-800 hover:!bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
+            className="bg-neutral-800! hover:bg-neutral-700! border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
           >
-            <span className="text-white !opacity-100">❮</span>
-            <span className="text-white !opacity-100 font-sans italic text-xs uppercase tracking-widest">
+            <span className="text-white opacity-100!">❮</span>
+            <span className="text-white opacity-100! font-sans italic text-xs uppercase tracking-widest">
               Kembali ke Beranda
             </span>
           </button>
