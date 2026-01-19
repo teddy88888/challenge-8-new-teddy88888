@@ -6,4 +6,9 @@
 - [x] Fix Home.tsx: Add missing state variables (movies, loading), remove unused import Movie, fix variable references
 - [x] Fix MovieDetail.tsx: Change 'any' type to proper type for genre, check JSX syntax
 - [x] Run TypeScript check to verify fixes
-- [ ] Test the application
+- [x] Test the application
+
+## Current Steps
+
+- [x] Fix invalid Tailwind classes in MovieDetail.tsx (remove '!' and correct invalid classes)
+- [x] Run TypeScript check (npm run build)

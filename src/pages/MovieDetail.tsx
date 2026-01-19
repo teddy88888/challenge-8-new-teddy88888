@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMovieDetail } from "../hooks/useMovies";
-import type { Video } from "../types";
+import type { Video, Cast } from "../types";
 import { useNavigate } from "react-router-dom";
 
 const MovieDetail = () => {
@@ -32,10 +32,10 @@ const MovieDetail = () => {
         <div className="container mx-auto px-6 md:px-20 mb-10">
           <button
             onClick={() => navigate("/")}
-            className="bg-neutral-800! hover:bg-neutral-700! border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
+            className="bg-neutral-800 hover:bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
           >
-            <span className="text-white opacity-100!">❮</span>
-            <span className="text-white opacity-100! font-sans italic text-xs uppercase tracking-widest">
+            <span className="text-white opacity-100">❮</span>
+            <span className="text-white opacity-100 font-sans italic text-xs uppercase tracking-widest">
               Kembali ke Beranda
             </span>
           </button>
@@ -95,7 +95,7 @@ const MovieDetail = () => {
 
               {/* Container Scroll Horizontal untuk Cast */}
               <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide">
-                {movie?.credits?.cast?.slice(0, 10).map((person: any) => (
+                {movie?.credits?.cast?.slice(0, 10).map((person: Cast) => (
                   <div
                     key={person.id}
                     className="flex-shrink-0 w-24 text-center group"
@@ -138,13 +138,13 @@ const MovieDetail = () => {
       {showModal && (
         <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4">
           <div className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
-            <div className="container left-0 top-0 mb-0 px-100 md:px-80">
+            <div className="absolute left-4 top-4">
               <button
                 onClick={() => navigate("/")}
-                className="!bg-neutral-800 hover:!bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
+                className="bg-neutral-800 hover:bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
               >
-                <span className="text-white !opacity-100">❮</span>
-                <span className="text-white !opacity-100 font-sans italic text-xs uppercase tracking-widest">
+                <span className="text-white opacity-100">❮</span>
+                <span className="text-white opacity-100 font-sans italic text-xs uppercase tracking-widest">
                   Kembali ke Beranda
                 </span>
               </button>
