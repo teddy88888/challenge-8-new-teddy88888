@@ -45,7 +45,7 @@ const Home = () => {
             // src={`${import.meta.env.VITE_TMDB_IMAGE_URL}${
             //   movies[0].backdrop_path
             // }`}
-            src="../heroSection.png"
+            src="./heroSection.png"
             className="w-380 h-350 object-cover left-200 brightness-100"
           />
           <div className="absolute bottom-20 left-6 md:left-20 max-w-xl">

@@ -32,12 +32,14 @@ const MovieDetail = () => {
         <div className="container mx-auto px-6 md:px-20 mb-10">
           <button
             onClick={() => navigate("/")}
-            className="bg-neutral-800 hover:bg-neutral-700 border border-white/20 px-6 py-2 rounded-full transition-all duration-300 shadow-xl flex items-center gap-3"
+            style={{
+              backgroundColor: "#262626",
+              color: "white",
+              border: "1px solid #404040",
+            }}
+            className="px-6 py-2 rounded-full font-bold uppercase text-xs tracking-widest"
           >
-            <span className="text-white opacity-100">❮</span>
-            <span className="text-white opacity-100 font-sans italic text-xs uppercase tracking-widest">
-              Kembali ke Beranda
-            </span>
+            ❮ Beranda
           </button>
         </div>
         <div className="container mx-auto px-6 md:px-20"></div>
